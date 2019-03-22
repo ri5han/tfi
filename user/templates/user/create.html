@@ -1,0 +1,33 @@
+{% extends 'user/base.html' %}
+
+{% block title %}
+TFI | create opportunity
+{% endblock title %}
+
+{% block content %}
+    <br><br>
+    {% if user.is_authenticated %}
+    <div class="col-md-4 text-center">
+        <h3>Create an opportunity:<h3>
+            <h5>This will help potential candidates know about your opportunity.</h5>
+            <br>
+
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    {{ form.as_p }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Create</button>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-outline-info"
+                        style="border-color:red;color:red;" href="{% url
+                        'userhome' %}">Cancel</a>
+                </div>
+            </form>
+    </div>
+    {% else %}
+        <h3>Login to view this page: <a href="{% url 'login' %}">LOGIN</a></h3>
+    {% endif %}
+    {% endblock content %}

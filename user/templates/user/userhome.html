@@ -1,0 +1,22 @@
+{% extends 'user/base.html' %}
+
+{% block title %}
+TFI | User Home
+{% endblock title %}
+
+{% block content %}
+    <br>
+    <div class="col-md-4 text-center">
+    {% if user.is_authenticated %}
+        <h3>Welcome <b>{{ user.username }}</b></h3>
+        <br>
+        <h3>Create an opportunity</h3>
+        <a class="btn btn-primary" type="button" href="create">Create</a>
+        <br><br>
+        <h3>Show all applications</h3>
+        <a class="btn btn-primary" type="button" href="applications">Show Applications</a>
+    {% else %}
+        <h3>Login to view this page: <a href="{% url 'login' %}">LOGIN</a></h3>
+    {% endif %}
+    </div>
+{% endblock content %}

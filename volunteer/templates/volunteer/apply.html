@@ -1,0 +1,27 @@
+{% extends 'user/base.html' %}
+
+{% block title %}
+TFI | Apply
+{% endblock title %}
+
+{% block content %}
+    <br><br>
+    <div class="col-md-4 text-center">
+        <h3>Application for Opportunity: <h3>
+        <h5>We will contact you with a week of applying, if you are eligible.</h5>
+        <br>
+
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{ form.as_p }}
+            </fieldset>  
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Apply</button>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-outline-info" style="border-color:red;color:red;" href="{% url 'userhome' %}">Cancel & Go back</a>
+            </div>     
+        </form>
+    </div>
+{% endblock content %}

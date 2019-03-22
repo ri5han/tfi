@@ -1,0 +1,55 @@
+{% extends 'user/base.html' %}
+
+{% block title %}
+TFI | Applications
+{% endblock title %}
+
+{% block content %}
+<br><br>
+<div class="col-md-4 text-center">
+    <h3 style="background-color:#0aaaed;"><b>List of applicants for your opportunities: </b></h3>
+    <br>
+    <!--{% for posts in posts %}
+    <div style="background-color:#D3D3D3;">
+        <div style="text-transform:uppercase;">
+            <h3><b><a style="text-decoration: none;" href="#">{{ posts.title }}</a></b></h3>
+            <h5>{{ posts.location }}</h5>
+        </div>
+        <p>{{ posts.description }}</p>
+        <span>From {{ posts.from_day }} to {{ posts.to_day }}</span>
+        <h6>Working hours (Hours/day): {{ posts.commitment_needed }}</h6>
+        <div class="form-group">
+            <a class="btn btn-outline-info btn-successful" style="border-color:green;color:black;" href="{% url 'apply' %}">Apply</a>
+        </div>
+        <br>
+    </div><hr>
+    {% endfor %}-->
+
+    <table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Hours/day</th>
+      <th scope="col">Why?</th>
+      <th scope="col">Experience</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for apps in apps %}      
+            <tr>
+                <th scope="row">{{apps.id}}</th>
+                <td>{{apps.name}}</td>
+                <td>{{apps.volunteer_email}}</td>
+                <td>{{apps.mobile}}</td>
+                <td>{{apps.commitment_time}}</td>
+                <td>{{apps.why_TFI}}</td>                
+                <td>{{apps.experience}}</td>
+            </tr>     
+    {% endfor %}  
+</tbody>
+</table>
+</div>
+{% endblock %}
